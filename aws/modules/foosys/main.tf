@@ -35,7 +35,7 @@ resource "aws_security_group" "allow_all" {
 resource "aws_instance" "foo_instance" {
   ami           = "${data.aws_ami.amazon_linux.id}"
   count         = 3
-  key_name      = "terraform-examples"
+  key_name      = "${var.ssh_key_name}"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
 

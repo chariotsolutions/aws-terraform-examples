@@ -31,6 +31,17 @@ module "foosys" {
   source = "../../modules/foosys"
   environment     = "${var.environment}"
   red_black       = "${var.red_black}"
+  ssh_key_name    = "${var.ssh_key_name}"
+  tag_name_prefix = "${var.tag_name_prefix}"
+  vpc_id          = "${var.main_vpc_id}"
+}
+
+module "barsys" {
+  source = "../../modules/barsys"
+  environment     = "${var.environment}"
+  red_black       = "${var.red_black}"
+  region          = "${var.region}"
+  ssh_key_name    = "${var.ssh_key_name}"
   tag_name_prefix = "${var.tag_name_prefix}"
   vpc_id          = "${var.main_vpc_id}"
 }
