@@ -1,6 +1,6 @@
 provider "aws" {
   region  = "us-east-1"
-  version = "1.35.0"
+  version = "1.37.0"
   # Best practice: create separate accounts for each environment (dev, test, prod)
   # and pin the environment terraform config to the account id.
   allowed_account_ids = ["366425516243"]
@@ -42,6 +42,7 @@ module "barsys" {
   red_black       = "${var.red_black}"
   region          = "${var.region}"
   ssh_key_name    = "${var.ssh_key_name}"
+  ssh_key_path    = "${var.ssh_key_path}"
   tag_name_prefix = "${var.tag_name_prefix}"
   vpc_id          = "${var.main_vpc_id}"
 }

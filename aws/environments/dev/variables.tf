@@ -10,6 +10,10 @@ variable "ssh_key_name" {
   default = "terraform-examples"
 }
 
+variable "ssh_key_path" {
+  type = "string"
+}
+
 variable "main_vpc_id" {
   default = "vpc-3f96305b"
 }

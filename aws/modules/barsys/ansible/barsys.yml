@@ -37,14 +37,8 @@
         name: amazon-linux-extras
         state: latest
 
-    - name: install python 3 step 1
-      shell: "amazon-linux-extras enable python3"
-
-    - name: install python 3 step 2
-      shell: "yum install python3"
-
-    - name: install python3-devel
-      shell: "yum install python3-devel"
+    - name: install python 3
+      shell: "amazon-linux-extras install python3"
 
     - name: create apps dir
       file:
@@ -55,4 +49,4 @@
         mode: "u=rwx,g=rx,o=rx"
       with_items:
         - "/home/ec2-user/apps"
-        - "/home/ec2-user/apps/mcp"
+        - "/home/ec2-user/apps/bar"

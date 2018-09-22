@@ -2,6 +2,11 @@ data "aws_ami" "amazon_linux" {
   most_recent = true
 
   filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-2.0.????????-x86_64-ebs"]
+  }
+
+  filter {
     name   = "owner-alias"
     values = ["amazon"]
   }
@@ -12,8 +17,8 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_security_group" "allow_all" {
-  name        = "allow_all"
+resource "aws_security_group" "foosys_allow_all" {
+  name        = "foosys_allow_all"
   description = "Allow all inbound traffic"
   vpc_id      = "${var.vpc_id}"
 
@@ -37,7 +42,7 @@ resource "aws_instance" "foo_instance" {
   count         = 3
   key_name      = "${var.ssh_key_name}"
   instance_type = "t2.micro"
-  vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
+  vpc_security_group_ids = ["${aws_security_group.foosys_allow_all.id}"]
 
   tags {
     Environment = "${var.environment}"
