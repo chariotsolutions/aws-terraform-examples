@@ -35,14 +35,3 @@ module "foosys" {
   tag_name_prefix = "${var.tag_name_prefix}"
   vpc_id          = "${var.main_vpc_id}"
 }
-
-module "barsys" {
-  source = "../../modules/barsys"
-  environment     = "${var.environment}"
-  red_black       = "${var.red_black}"
-  region          = "${var.aws_region}"
-  ssh_key_name    = "${var.ssh_key_name}"
-  ssh_key_path    = "${var.ssh_key_path}"
-  tag_name_prefix = "${var.tag_name_prefix}"
-  vpc_id          = "${var.main_vpc_id}"
-}

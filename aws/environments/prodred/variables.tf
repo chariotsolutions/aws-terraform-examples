@@ -3,7 +3,7 @@ variable "aws_region" {
 }
 
 variable "environment" {
-  default = "dev"
+  default = "prod"
 }
 
 variable "ssh_key_name" {
@@ -16,6 +16,10 @@ variable "ssh_key_path" {
 
 variable "main_vpc_id" {
   default = "vpc-3f96305b"
+}
+
+variable "region" {
+  default = "us-east-1"
 }
 
 variable "red_black" {
